@@ -3,7 +3,6 @@ package com.example.springboot.service.impl;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import com.example.springboot.controller.request.BaseRequest;
-import com.example.springboot.controller.request.UserPageRequest;
 import com.example.springboot.entity.User;
 import com.example.springboot.mapper.UserMapper;
 import com.example.springboot.service.IUserService;
@@ -38,6 +37,7 @@ public class UserService implements IUserService {
         Date date = new Date();
         // 当做卡号来处理
         user.setUsername(DateUtil.format(date, "yyyyMMdd") + Math.abs(IdUtil.fastSimpleUUID().hashCode()));
+        user.setAccount(0);
         userMapper.save(user);
     }
 
